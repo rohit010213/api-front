@@ -5,6 +5,7 @@ import './styles/EditCar.css';
 
 const EditCar = () => {
     const [car, setCar] = useState(null);
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -15,8 +16,10 @@ const EditCar = () => {
                     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
                 });
                 setCar(response.data);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching car:', error);
+                setLoading(false);
             }
         };
 
@@ -39,7 +42,8 @@ const EditCar = () => {
         }
     };
 
-    if (!car) return <div>Loading...</div>;
+    if (loading) return <div>Loading...</div>;
+    if (!car) return <div>No car found</div>;
 
     return (
         <div className="car-form-container">

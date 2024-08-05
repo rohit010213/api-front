@@ -15,8 +15,8 @@ const AddCar = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post(
-        'https://api-front-lv6m.onrender.com/api/cars', // Ensure this URL is correct
+      const response = await axios.post(
+        'https://api-front-lv6m.onrender.com/api/cars',
         {
           car_name: carName,
           manufacturing_year: manufacturingYear,
@@ -28,6 +28,7 @@ const AddCar = () => {
           },
         }
       );
+      console.log('Add Car Response:', response.data); // Log response
       navigate('/car-list');
     } catch (error) {
       setError('Failed to add car. Please try again.');
