@@ -31,7 +31,7 @@ const EditCar = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.put(`https://api-front-cnqe.onrender.com/api/cars/${id}`, {
+            const response = await axios.put(`https://mern-api-5.onrender.com/api/cars/${id}`, {
                 car_name: car.car_name,
                 manufacturing_year: car.manufacturing_year,
                 price: car.price
