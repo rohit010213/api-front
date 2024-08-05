@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './styles/CarForm.css'; // Import the CSS file
+import './styles/CarForm.css';
 
 const AddCar = () => {
   const [carName, setCarName] = useState('');
@@ -16,7 +16,7 @@ const AddCar = () => {
 
     try {
       await axios.post(
-        'https://mern-api-5.onrender.com/api/cars',
+        'https://api-front-lv6m.onrender.com/api/cars', // Ensure this URL is correct
         {
           car_name: carName,
           manufacturing_year: manufacturingYear,

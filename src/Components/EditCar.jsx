@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './styles/EditCar.css'; // Import the CSS file
+import './styles/EditCar.css';
 
 const EditCar = () => {
     const [car, setCar] = useState(null);
@@ -11,7 +11,7 @@ const EditCar = () => {
     useEffect(() => {
         const fetchCar = async () => {
             try {
-                const response = await axios.get(`https://mern-api-5.onrender.com/api/cars/${id}`, {
+                const response = await axios.get(`https://api-front-lv6m.onrender.com/api/cars/${id}`, {
                     headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
                 });
                 setCar(response.data);
@@ -26,7 +26,7 @@ const EditCar = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.put(`https://mern-api-5.onrender.com/api/cars/${id}`, {
+            await axios.put(`https://api-front-lv6m.onrender.com/api/cars/${id}`, {
                 car_name: car.car_name,
                 manufacturing_year: car.manufacturing_year,
                 price: car.price
