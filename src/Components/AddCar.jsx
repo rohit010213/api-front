@@ -16,7 +16,7 @@ const AddCar = () => {
 
     try {
       const response = await axios.post(
-        'https://api-front-cnqe.onrender.com',
+        'https://api-front-cnqe.onrender.com/api/cars',
         {
           car_name: carName,
           manufacturing_year: manufacturingYear,
