@@ -28,8 +28,8 @@ const AddCar = () => {
           },
         }
       );
-      console.log('Add Car Response:', response.data); // Log response
-      navigate('/car-list');
+      console.log('Add Car Response:', response.data); // Log response for debugging
+      navigate('/car-list'); // Navigate to car list or refresh list
     } catch (error) {
       setError('Failed to add car. Please try again.');
       console.error('Add car error:', error.response ? error.response.data : error.message);
