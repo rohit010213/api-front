@@ -1,0 +1,22 @@
+/* Reset some basic elements for cross-browser consistency */
+body, h1, h2, p, ul, li, button, input, select {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body style */
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Container for all pages */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}

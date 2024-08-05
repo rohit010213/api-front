@@ -1,0 +1,57 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+import './styles/EditCar.css'; // Import the CSS file
+
+const EditCar = () => {
+    const [car, setCar] = useState(null);
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchCar = async () => {
+            try {
+                const response = await axios.get(`https://mern-api-5.onrender.com/api/cars/${id}`, {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                });
+                setCar(response.data);
+            } catch (error) {
+                console.error('Error fetching car:', error);
+            }
+        };
+
+        fetchCar();
+    }, [id]);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.put(`https://mern-api-5.onrender.com/api/cars/${id}`, {
+                car_name: car.car_name,
+                manufacturing_year: car.manufacturing_year,
+                price: car.price
+            }, {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+            });
+            navigate('/car-list');
+        } catch (error) {
+            console.error('Error updating car:', error);
+        }
+    };
+
+    if (!car) return <div>Loading...</div>;
+
+    return (
+        <div className="car-form-container">
+            <h1>Edit Car</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" value={car.car_name} onChange={(e) => setCar({ ...car, car_name: e.target.value })} required />
+                <input type="number" value={car.manufacturing_year} onChange={(e) => setCar({ ...car, manufacturing_year: e.target.value })} required />
+                <input type="number" value={car.price} onChange={(e) => setCar({ ...car, price: e.target.value })} required />
+                <button type="submit">Update Car</button>
+            </form>
+        </div>
+    );
+};
+
+export default EditCar;

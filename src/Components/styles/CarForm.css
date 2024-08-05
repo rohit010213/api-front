@@ -1,0 +1,52 @@
+/* Add car page style css */
+
+.car-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.car-form-container h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #007bff;
+}
+
+.car-form-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-form-container input,
+.car-form-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.car-form-container button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.car-form-container button:hover {
+    background-color: #0056b3;
+}
+
+.car-form-container .car-error {
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}

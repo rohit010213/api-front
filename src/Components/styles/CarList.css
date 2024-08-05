@@ -1,0 +1,74 @@
+.car-list-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.add-car-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+.add-car-button:hover {
+    background-color: #0056b3;
+}
+
+.car-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.car-card {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: left;
+}
+
+.car-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.car-card p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-button,
+.delete-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
