@@ -14,6 +14,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
 
     try {
       await axios.post('https://mern-api-5.onrender.com/api/users/register', {
@@ -25,15 +26,18 @@ const Register = () => {
       });
       navigate('/login');
     } catch (error) {
-      setError('Email already exist');
+      if (error.response && error.response.status === 409) {
+        setError('User with this email or username already exists.');
+      } else {
+        setError('Registration failed. Please try again.');
+      }
       console.error('Registration error:', error);
     }
   };
 
   return (
     <div className="auth-container">
-      <h1>Assignment for
-      Quadiro Technologies</h1>
+      <h1>Assignment for Quadiro Technologies</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
